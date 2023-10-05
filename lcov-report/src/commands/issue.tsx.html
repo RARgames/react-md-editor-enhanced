@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/commands/quote.tsx</title>
+    <title>Code coverage report for src/commands/issue.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/commands</a> quote.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/commands</a> issue.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,20 +99,7 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,68 +118,57 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import { ICommand, ExecuteState, TextAreaTextApi } from './';
-import {
-  getBreaksNeededForEmptyLineBefore,
-  getBreaksNeededForEmptyLineAfter,
-  selectWord,
-  insertBeforeEachLine,
-} from '../utils/markdownUtils';
+import { selectWord, executeCommand } from '../utils/markdownUtils';
 &nbsp;
-export const quote: ICommand = {
-  name: 'quote',
-  keyCommand: 'quote',
-  shortcuts: 'ctrlcmd+q',
-  prefix: '&gt; ',
-  buttonProps: { 'aria-label': 'Insert a quote (ctrl + q)', title: 'Insert a quote (ctrl + q)' },
+export const issue: ICommand = {
+  name: 'issue',
+  keyCommand: 'issue',
+  prefix: '#',
+  suffix: '',
+  buttonProps: { 'aria-label': 'Add issue', title: 'Add issue' },
   icon: (
-    &lt;svg width="12" height="12" viewBox="0 0 520 520"&gt;
+    &lt;svg role="img" width="12" height="12" viewBox="0 0 448 512"&gt;
       &lt;path
         fill="currentColor"
-        d="M520,95.75 L520,225.75 C520,364.908906 457.127578,437.050625 325.040469,472.443125 C309.577578,476.586875 294.396016,464.889922 294.396016,448.881641 L294.396016,414.457031 C294.396016,404.242891 300.721328,395.025078 310.328125,391.554687 C377.356328,367.342187 414.375,349.711094 414.375,274.5 L341.25,274.5 C314.325781,274.5 292.5,252.674219 292.5,225.75 L292.5,95.75 C292.5,68.8257812 314.325781,47 341.25,47 L471.25,47 C498.174219,47 520,68.8257812 520,95.75 Z M178.75,47 L48.75,47 C21.8257813,47 0,68.8257812 0,95.75 L0,225.75 C0,252.674219 21.8257813,274.5 48.75,274.5 L121.875,274.5 C121.875,349.711094 84.8563281,367.342187 17.828125,391.554687 C8.22132813,395.025078 1.89601563,404.242891 1.89601563,414.457031 L1.89601563,448.881641 C1.89601563,464.889922 17.0775781,476.586875 32.5404687,472.443125 C164.627578,437.050625 227.5,364.908906 227.5,225.75 L227.5,95.75 C227.5,68.8257812 205.674219,47 178.75,47 Z"
+        d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128h95.1l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H347.1L325.8 320H384c17.7 0 32 14.3 32 32s-14.3 32-32 32H315.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.826.3s-29.2-19.4-26.3-36.8l9.8-58.7H155.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l21.3-128H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8320h95.1l21.3-128H187.1z"
+        //Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
       /&gt;
     &lt;/svg&gt;
   ),
-  execute: (state: ExecuteState, api: TextAreaTextApi) =&gt; {
-    const newSelectionRange = selectWord({
+  execute: <span class="fstat-no" title="function not covered" >(s</span>tate: ExecuteState, api: TextAreaTextApi) =&gt; {
+    const newSelectionRange = <span class="cstat-no" title="statement not covered" >selectWord({</span>
       text: state.text,
       selection: state.selection,
       prefix: state.command.prefix!,
+      suffix: state.command.suffix,
     });
-    const state1 = api.setSelectionRange(newSelectionRange);
-    const breaksBeforeCount = getBreaksNeededForEmptyLineBefore(state1.text, state1.selection.start);
-    const breaksBefore = Array(breaksBeforeCount + 1).join('\n');
-&nbsp;
-    const breaksAfterCount = getBreaksNeededForEmptyLineAfter(state1.text, state1.selection.end);
-    const breaksAfter = Array(breaksAfterCount + 1).join('\n');
-&nbsp;
-    const modifiedText = insertBeforeEachLine(state1.selectedText, state.command.prefix!);
-    api.replaceSelection(`${breaksBefore}${modifiedText.modifiedText}${breaksAfter}`);
-&nbsp;
-    const selectionStart = state1.selection.start + breaksBeforeCount;
-    const selectionEnd = selectionStart + modifiedText.modifiedText.length;
-    api.setSelectionRange({ start: selectionStart, end: selectionEnd });
+    const state1 = <span class="cstat-no" title="statement not covered" >api.setSelectionRange(newSelectionRange);</span>
+<span class="cstat-no" title="statement not covered" >    executeCommand({</span>
+      api,
+      selectedText: state1.selectedText,
+      selection: state.selection,
+      prefix: state.command.prefix!,
+      suffix: state.command.suffix,
+    });
   },
 };
 &nbsp;</pre></td></tr></table></pre>
